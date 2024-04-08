@@ -1,0 +1,55 @@
+#content {
+    min-height: 100vh; /* Ensure content area takes up the full height */
+    min-width: 100vh; /* Ensure content area takes up the full height */
+  }
+.container{
+    
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+.custom-card {
+    border: 1px solid #929292;
+    background-color: rgba(39, 55, 86, 0.902);
+    border-radius: 8px;
+    color: #fff;
+    text-align: center; /* Center-align content */
+  }
+  .form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  .form-group label {
+    flex-basis: 25%; /* Adjust label width */
+    margin-right: 2rem; /* Add spacing between label and input */
+    text-align: left;
+  }
+  .form-group input, 
+  .form-group select {
+    flex-basis: 60%; /* Adjust input width */
+    width: 100%; /* Fill available space */
+  }
+  .btn {
+    background-color: rgb(5, 39, 87);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+  }
+  .btn:hover{
+    background-color: #1325ef;
+  }
+  :disabled {
+    background-color: #5b636b;
+    cursor: not-allowed;
+}
+  

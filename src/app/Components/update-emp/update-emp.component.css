@@ -1,0 +1,15 @@
+.custom-card {
+    background-color: transparent !important;
+    
+  }
+  
+  .container {
+    background-color: transparent !important;
+  }
+  .btn{
+    background-color:rgb(5, 39, 87) ;
+    color: #fff;
+}
+.btn:hover{
+    background-color:#1325ef ;
+}

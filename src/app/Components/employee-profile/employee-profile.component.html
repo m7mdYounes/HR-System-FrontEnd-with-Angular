@@ -1,0 +1,35 @@
+<div [hidden]="!getEmpProfileAuth()">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 text-white">
+        <div *ngIf="employeeData">
+          <h1 class="mt-3">
+            <i class="fa-solid fa-user-tie" style="color: #ffffff"></i>
+            {{ employeeData.fullName }}
+          </h1>
+          <hr />
+          <p><b class="fs-5">Address: </b> {{ employeeData.address }}</p>
+          <p><b class="fs-5">Number: </b>{{ employeeData.phoneNumber }}</p>
+          <p><b class="fs-5">Gender: </b>{{ employeeData.gender }}</p>
+          <p><b class="fs-5">Nationality: </b>{{ employeeData.nationality }}</p>
+          <p>
+            <b class="fs-5">Date of Birth: </b>{{ employeeData.dateOfBirth }}
+          </p>
+          <p>
+            <b class="fs-5">National ID Number: </b
+            >{{ employeeData.nationalIdNumber }}
+          </p>
+          <p>
+            <b class="fs-5">Contract Date: </b>{{ employeeData.contractDate }}
+          </p>
+          <p><b class="fs-5">Salary: </b>{{ employeeData.salary }}</p>
+          <p><b class="fs-5">Start Time: </b>{{ employeeData.startTime }}</p>
+          <p><b class="fs-5">End Time: </b>{{ employeeData.endTime }}</p>
+        </div>
+        <div *ngIf="!employeeData">
+          <p>Loading employee data...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

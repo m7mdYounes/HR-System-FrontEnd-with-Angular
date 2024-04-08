@@ -1,0 +1,62 @@
+<div class="container"
+style="background-image: url('assets/3.jpg') ;background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+height: 100vh;" >
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card custom-card mt-5">
+          <div class="card-body">
+            <h5 class="card-title mb-4 text-center fs-3 mt-2">Login Form</h5>
+            <hr class="w-100 border-top border-2 text-white mb-5">
+          <form (ngSubmit)="submit()" #loginform="ngForm">
+            <div class="form-group">
+              <label for="username" class="form-label fs-5">Username</label>
+              <input
+                type="text"
+                id="username"
+                class="form-control"
+                [(ngModel)]="loginForm.username"
+                name="username"
+                #username="ngModel"
+                required
+              />
+              <div
+                class="invalid-feedback"
+                [hidden]="username.valid || username.untouched"
+              >
+                *Username is required
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password" class="form-label fs-5">Password</label>
+              <input
+                type="password"
+                id="password"
+                class="form-control"
+                [(ngModel)]="loginForm.password"
+                name="password"
+                #password="ngModel"
+                required
+              />
+              <div
+                class="invalid-feedback"
+                [hidden]="password.valid || password.untouched"
+              >
+                *Password is required
+              </div>
+            </div>
+            
+              <button
+                type="submit"
+                class="btn w-50 mt-4 mb-4"
+                [disabled]="loginform.invalid">
+                Submit
+              </button>
+          
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

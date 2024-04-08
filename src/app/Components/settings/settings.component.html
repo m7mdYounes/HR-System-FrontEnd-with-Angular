@@ -1,0 +1,141 @@
+<div class="col-md-12">
+  <div class="panel">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-10 mb-5">
+          <h4 class="title"><b>General Settings</b></h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-body">
+      <div class="row mb-3 justify-content-center mt-0">
+        <label
+          for="additionalHourRate"
+          class="col-sm-3 col-form-label form-label"
+          >Additional Hour Rate</label
+        >
+        <div class="col-sm-4">
+          <input
+            type="number"
+            min="1"
+            step="1"
+            class="form-control sizee form-control-sm text-black"
+            id="additionalHourRate"
+            [(ngModel)]="newSettings.additionalHourRate"
+            placeholder="Enter additional hour rate"
+          />
+        </div>
+      </div>
+      <div class="row mb-3 justify-content-center">
+        <label
+          for="lateDeductionRate"
+          class="col-sm-3 col-form-label form-label"
+          >Late Deduction Rate</label
+        >
+        <div class="col-sm-4">
+          <input
+            type="number"
+            min="1"
+            step="1"
+            class="form-control sizee form-control-sm text-black"
+            id="lateDeductionRate"
+            [(ngModel)]="newSettings.lateDeductionRate"
+            placeholder="Enter late deduction rate"
+          />
+        </div>
+      </div>
+      <hr class="my-4" style="color: white" />
+      <div class="row mb-3 part2 justify-content-center">
+        <label for="holidayDayOne" class="col-sm-3 col-form-label form-label"
+          >Select Holiday Day One</label
+        >
+        <div class="col-sm-4">
+          <select
+            class="form-select sizee form-control-sm"
+            id="holidayDayOne"
+            [(ngModel)]="newSettings.holidayDayOne"
+          >
+            <option
+              *ngFor="let dayIndex of getNumericRange(0, 6)"
+              [value]="dayIndex"
+            >
+              {{ daysOfWeek[dayIndex] }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="row mb-3 part2 justify-content-center">
+        <label for="holidayDayTwo" class="col-sm-3 col-form-label form-label"
+          >Select Holiday Day Two</label
+        >
+        <div class="col-sm-4">
+          <select
+            class="form-select sizee form-control-sm"
+            id="holidayDayTwo"
+            [(ngModel)]="newSettings.holidayDayTwo"
+            [class.is-invalid]="!validateHolidayDays()"
+          >
+            <option
+              *ngFor="let dayIndex of getNumericRange(0, 6)"
+              [value]="dayIndex"
+            >
+              {{ daysOfWeek[dayIndex] }}
+            </option>
+          </select>
+          <div class="invalid-feedback">
+            Holiday Two must be different from Holiday One.
+          </div>
+        </div>
+      </div>
+
+      <!-- <button type="button" class="btn btn-primary btn-sm mt-5 equal-width-btn" style="margin-left: 280px; background-color: rgb(6, 44, 101);" (click)="addSettings()">Add Settings</button> -->
+      <button
+        type="button"
+        class="btn btn-primary btn-sm mt-5 equal-width-btn"
+        style="margin-left: 380px; "
+        (click)="addOrUpdateSettings()"
+        [hidden] = "!updateSettingsAuth()"
+      >
+        Update Settings
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container mt-3">
+    
+    <div class="mb-3">
+      <label for="additionalHourRate" class="form-label">Additional Hour Rate</label>
+      <input type="number" class="form-control" id="additionalHourRate" [(ngModel)]="newSettings.additionalHourRate" placeholder="Enter additional hour rate">
+    </div>
+  
+
+    <div class="mb-3">
+      <label for="lateDeductionRate" class="form-label">Late Deduction Rate</label>
+      <input type="number" class="form-control" id="lateDeductionRate" [(ngModel)]="newSettings.lateDeductionRate" placeholder="Enter late deduction rate">
+    </div>
+  
+    
+    <div class="mb-3">
+      <label for="holidayDayOne" class="form-label">Select Holiday Day One</label>
+      <select class="form-select" id="holidayDayOne" [(ngModel)]="holidayDayOne">
+        <option *ngFor="let day of daysOfWeek" [value]="day">{{ day }}</option>
+      </select>
+    </div>
+  
+    
+    <div class="mb-3">
+      <label for="holidayDayTwo" class="form-label">Select Holiday Day Two</label>
+      <select class="form-select" id="holidayDayTwo" [(ngModel)]="holidayDayTwo">
+        <option *ngFor="let day of daysOfWeek" [value]="day">{{ day }}</option>
+      </select>
+    </div>
+  
+  
+    <button type="button" class="btn btn-primary mt-3 me-3" (click)="addSettings()">Add Settings</button>
+  
+    
+    <button type="button" class="btn btn-warning mt-3" (click)="updateSettings()">Update Settings</button>
+  </div>
+   -->

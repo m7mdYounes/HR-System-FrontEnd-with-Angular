@@ -1,0 +1,40 @@
+<div class="col-md-12"> 
+  <div class="panel">
+      <div class="panel-heading">
+          <div class="row" [hidden] = "!getAllRecordAuth()" >
+             <!-- <div class="col" [hidden] = "!getAllRecordAuth()"> -->
+              <div class="col-6">
+                  <h4 class="title"><b>Attandance</b></h4>
+              </div>
+          </div>
+      </div>
+      <div class="panel-body table-responsive">
+          <table class="table table-bordered">
+            <thead class="text-center">
+              <tr>
+                <th><b>Employee Name</b></th>
+                    <th><b>Day Date</b></th>
+                    <th><b>Attendance Time</b></th>
+                    <th><b>Dismissal Time</b></th>
+                    <th><b>Actions</b></th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr *ngFor="let r of recordsofday">
+          <td>{{ r.emp_name }}</td>
+          <td>{{ r.day_date }}</td>
+          <td>{{ r.attendance_time }}</td>
+          <td>{{ r.departure_time }}</td>
+          <td>
+            <ul class="action-list">
+              <li><a  data-tip="delete" (click)="deleterecord(r.id)"><i class="fas fa-trash" style="color: rgb(243, 18, 18);"></i></a></li>
+          </ul>
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div> 
+                

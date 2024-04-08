@@ -1,0 +1,107 @@
+<div class="col-md-12" [hidden] = "!getEmpSalaryAuth()"> 
+  <div class="panel">
+      <div class="panel-heading">
+          <div class="row">
+              <div class="col-6 mb-1">
+                  <h4 class="title"><b>Employee Salary</b></h4>
+              </div>
+          </div>
+      </div>
+      <div class="panel-body" style="margin-left: 30px;">
+        <form #salForm="ngForm" (ngSubmit)="submit()">
+          <div class="mb-3">
+            <label class="col-form-label form-label fs-5">Month :
+            <select
+            style="margin-left: 17px;"
+            [(ngModel)]="reqSalary.month"
+                    class="form-control text-black"
+                    name="month"
+                    #month="ngModel"
+                    required
+                  
+                  >
+      <option selected disabled>Select Month</option>
+      <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+        </label>
+      </div>
+      <div class="mb-3">
+        <label class="col-form-label form-label fs-5" >Year :
+        <input
+        style="margin-left: 40px;"
+    class="form-control"
+      type="number"
+      min="2020"
+      step="1"
+      required
+      [(ngModel)]="reqSalary.year"
+      name="year"
+      #year="ngModel"
+        />
+      </label>
+    </div>
+    <button class="btn btn-dark mt-3" [disabled]="salForm.invalid" style="margin-left: 7rem;">
+      Get Salary
+    </button>
+  </form>
+</div>
+
+</div>
+ 
+<!-- ////////////////////////////////////////////////////// -->
+<hr class="w-100 text-white mt-3">
+        <div class="col-md-14">
+          <div class="panel">
+              <div class="panel-heading">
+                  <div class="row">
+                      <div class="col-6">
+                          <h4 class="title"><b>Salary Report</b></h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel-body table-responsive">
+                      <table class="table table-bordered">
+                          <thead class="text-center">
+                              <tr>
+                                <th><b>Employee Name</b></th>
+                                <th><b>Basic Salary</b></th>
+                                <th><b>Attendance Days</b></th>
+                                <th><b>Absence Days</b></th>
+                                <th><b>Added Hours</b></th>
+                                <th><b>Late Hours</b></th>
+                                <th><b>Added Salary</b></th>
+                                <th><b>Subtracted Salary</b></th>
+                                <th><b>Overall Salary</b></th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+      <td>{{ salaryreport.emp_name }}</td>
+      <td>{{ salaryreport.salary }}</td>
+      <td>{{ salaryreport.attendaceDays }}</td>
+      <td>{{ salaryreport.absenceDays }}</td>
+      <td>{{ salaryreport.addedHours }}</td>
+      <td>{{ salaryreport.lateHours }}</td>
+      <td>{{ salaryreport.addedSalary }}</td>
+      <td>{{ salaryreport.subtractedSalary }}</td>
+      <td>{{ salaryreport.overallSalary }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+

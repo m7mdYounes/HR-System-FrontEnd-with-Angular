@@ -1,0 +1,43 @@
+
+  <div [hidden] = "!getAllEmployeesAuth()">
+  <div class="panel">
+      <div class="panel-heading">
+          <div class="row">
+              <div class="col-6">
+                  <h4 class="title"><b>Employees List</b></h4>
+              </div>
+      </div>
+    </div>
+    <div class="panel-body table-responsive">
+      <table class="table table-bordered">
+          <thead class="text-center">
+              <tr>
+                  <th><b>#</b></th>
+                  <th><b>Full Name</b></th>
+                  <th><b>StartDate</b></th>
+                  <th><b>EndDate</b></th>
+                  <th><b>Actions</b></th>
+              </tr>
+          </thead>
+          <tbody class="text-center">
+            <ng-container *ngFor="let Emp of EmployeeList; let i = index">
+                <tr>
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ Emp.fullName }}</td>
+                    <td>{{ Emp.startTime }}</td>
+                    <td>{{ Emp.endTime }}</td>
+                    <td>
+                        <ul class="action-list">
+                            <li><a href="#" data-tip="edit" routerLink="/editemp/{{ Emp.id }}"><i class="fas fa-edit" style="margin-right: 10px;"></i></a></li>
+                            <li><a  data-tip="delete" (click)="delete(Emp.id)"><i class="fas fa-trash" style="color: rgb(243, 18, 18);"></i></a></li>
+                        </ul>
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+

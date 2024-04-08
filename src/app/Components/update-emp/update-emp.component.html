@@ -1,0 +1,281 @@
+<div class="container">
+  <div class="card custom-card" style="border: none">
+    <div class="row d-flex justify-content-center">
+      <div [hidden]="!editEmployeeAuth()">
+        <form
+          style="background-color: transparent; color: #fff; border: none"
+          class="form-control"
+          [formGroup]="employeeForm"
+          (ngSubmit)="onSubmit()"
+        >
+          <div class="container">
+            <div class="row">
+              <h2
+                class="text-center p-3"
+                style="border-bottom: 0.25px solid #ffffffb1"
+              >
+                Edit Employee
+              </h2>
+            </div>
+            <div class="row">
+              <div
+                class="col-md-6"
+                style="border-right: 0.25px solid #ffffff98"
+              >
+                <div style="border-bottom: 0.25px solid #ffffff98">
+                  <h3 class="text-center p-3">Main Data</h3>
+                </div>
+
+                <div class="mt-4">
+                  <label for="fullName">FullName :</label>
+                  <input
+                    class="form-control mt-2"
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    formControlName="fullName"
+                    readonly
+                  />
+                  <div *ngIf="fullName?.invalid && fullName?.touched">
+                    <small
+                      class="alert alert-danger"
+                      *ngIf="fullName?.errors?.['required']"
+                    >
+                      *Name is required
+                    </small>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <label for="address">Address :</label>
+                  <input
+                    class="form-control mt-2"
+                    type="text"
+                    id="address"
+                    formControlName="address"
+                  />
+                  <div *ngIf="address?.invalid && address?.touched">
+                    <small
+                      class="text-danger"
+                      *ngIf="address?.errors?.['required']"
+                    >
+                      *Address is required
+                    </small>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <label for="PhoneNumber">phoneNumber :</label>
+                  <input
+                    class="form-control mt-2"
+                    type="text"
+                    id="phoneNumber"
+                    formControlName="phoneNumber"
+                  />
+                  <div *ngIf="phoneNumber?.invalid && phoneNumber?.touched">
+                    <small
+                      class="text-danger"
+                      *ngIf="phoneNumber?.errors?.['required']"
+                    >
+                      *PhoneNumber is required
+                    </small>
+                    <small
+                      class="text-danger"
+                      *ngIf="phoneNumber?.errors?.['pattern']"
+                    >
+                      *Please, Enter Valid PhoneNumber
+                    </small>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <label for="gender">Gender :</label>
+                  <select
+                    id="gender"
+                    formControlName="gender"
+                    class="mt-2"
+                    style="border-radius: 5px; margin-left: 20px; height: 35px"
+                  >
+                    <option value="" disabled selected>Select gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                  <div *ngIf="gender?.invalid && gender?.touched">
+                    <small
+                      class="text-danger"
+                      *ngIf="gender?.errors?.['required']"
+                    >
+                      *gender is required
+                    </small>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <label for="nationality">nationality :</label>
+                  <input
+                    class="form-control mt-2"
+                    type="text"
+                    id="nationality"
+                    formControlName="nationality"
+                  />
+                  <div *ngIf="nationality?.invalid && nationality?.touched">
+                    <small
+                      class="text-danger"
+                      *ngIf="nationality?.errors?.['required']"
+                    >
+                      *nationality is required
+                    </small>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <label for="dateOfBirth">dateOfBirth :</label>
+                  <input
+                    class="form-control mt-2"
+                    type="date"
+                    id="dateOfBirth"
+                    formControlName="dateOfBirth"
+                    min="2020-1-1"
+                  />
+                  <div *ngIf="dateOfBirth?.invalid && dateOfBirth?.touched">
+                    <small
+                      class="text-danger"
+                      *ngIf="dateOfBirth?.errors?.['required']"
+                    >
+                      *dateOfBirth is required
+                    </small>
+                    <small
+                      class="text-danger"
+                      *ngIf="dateOfBirth?.errors?.['InvalidAge']"
+                    >
+                      *The employee must be at least 20 years old
+                    </small>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <label for="nationalIdNumber">nationalIdNumber:</label>
+                  <input
+                    class="form-control mt-2"
+                    type="text"
+                    id="nationalIdNumber"
+                    formControlName="nationalIdNumber"
+                  />
+                  <div
+                    *ngIf="
+                      nationalIdNumber?.invalid && nationalIdNumber?.touched
+                    "
+                  >
+                    <small
+                      class="text-danger"
+                      *ngIf="nationalIdNumber?.errors?.['required']"
+                    >
+                      *nationalIdNumber is required
+                    </small>
+                    <small
+                      class="text-danger"
+                      *ngif="nationalIdNumber?.errors?.['pattern']"
+                    >
+                      *The national ID must not be less than 14 numbers
+                    </small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div style="border-bottom: 0.25px solid #ffffff98">
+                  <h3 class="text-center p-3">Work data</h3>
+                </div>
+                <div class="mt-4">
+                  <label for="contractDate">contractDate :</label>
+                  <input
+                    class="form-control mt-2"
+                    type="date"
+                    id="contractDate"
+                    formControlName="contractDate"
+                  />
+                  <div *ngIf="contractDate?.invalid && contractDate?.touched">
+                    <small
+                      class="text-danger"
+                      *ngIf="contractDate?.errors?.['required']"
+                    >
+                      *contractDate is required
+                    </small>
+                    <small
+                      class="text-danger"
+                      *ngIf="contractDate?.errors?.['invalidContractDate']"
+                    >
+                      *Contract date cannot be before the company's start date
+                      (2023-01-01).
+                    </small>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <label for="salary">salary :</label>
+                  <input
+                    class="form-control mt-2"
+                    type="number"
+                    id="salary"
+                    formControlName="salary"
+                  />
+                  <div *ngIf="salary?.invalid && salary?.touched">
+                    <small
+                      class="text-danger"
+                      *ngIf="salary?.errors?.['required']"
+                    >
+                      *salary is required
+                    </small>
+                    <small
+                      class="text-danger"
+                      *ngIf="salary?.errors?.['pattern']"
+                    >
+                      *Please enter a valid salary
+                    </small>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <label for="startTime">startTime :</label>
+                  <input
+                    class="form-control mt-2"
+                    type="time"
+                    id="startTime"
+                    formControlName="startTime"
+                  />
+                  <div *ngIf="startTime?.invalid && startTime?.touched">
+                    <small
+                      class="text-danger"
+                      *ngIf="startTime?.errors?.['required']"
+                    >
+                      *startTime is required
+                    </small>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <label for="endTime">endTime:</label>
+                  <input
+                    class="form-control mt-2"
+                    type="time"
+                    id="endTime"
+                    formControlName="endTime"
+                  />
+                  <div *ngIf="endTime?.invalid && endTime?.touched">
+                    <small
+                      class="text-danger"
+                      *ngIf="endTime?.errors?.['required']"
+                    >
+                      *endTime is required
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <button
+                style="width: 30%; margin-left: 350px"
+                class="btn my-5"
+                type="submit"
+                [disabled]="employeeForm.invalid"
+              >
+                Update
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

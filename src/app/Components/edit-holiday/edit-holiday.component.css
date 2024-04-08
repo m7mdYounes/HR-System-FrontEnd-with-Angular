@@ -1,0 +1,91 @@
+/* Apply styles to the panel */
+.container {
+    margin-left: 0; /* Remove the left margin */
+    margin-right: 0; /* Remove the left margin */
+
+}
+.panel {
+    background: none;
+    border: none;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 20px; /* Added margin to separate panels */
+}
+
+/* Apply styles to the panel heading */
+.panel .panel-heading {
+    padding: 20px 15px;
+    margin: 0;
+}
+
+/* Apply styles to the title inside the panel heading */
+.panel .panel-heading .title {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 500;
+    text-transform: capitalize;
+    line-height: 40px;
+    margin: 0;
+    border-bottom: 1px solid #ffffffba; /* Added border bottom */
+    padding-bottom: 10px; /* Added padding bottom to space the border from text */
+}
+
+/* Apply styles to the form labels */
+.panel .panel-body label.form-label {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+
+/* Apply styles to the form input fields when focused */
+.panel .panel-body input.form-control:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.811);
+}
+
+/* Apply styles to the error messages */
+.panel .panel-body .text-danger {
+    color: #ffdddd;
+}
+
+/* Apply styles to the submit button */
+.panel .panel-body button.btn {
+    background-color: rgb(6, 44, 101);
+    width: 150px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Apply styles to the submit button on hover */
+.panel .panel-body button.btn:hover {
+    background-color: #dcdcdc;
+}
+
+/* Apply styles to the submit button when disabled */
+.panel .panel-body button.btn:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.panel .panel-body input.form-control {
+    color: rgb(0, 0, 0)000;
+    background-color: #fff;
+    border: 0.5px solid #fff; /* Add border to input fields */
+    border-radius: 4px; /* Add border radius */
+    font-size: 15px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    width: 80%;
+    transition: border-color 0.3s ease;
+}
+
+

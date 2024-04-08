@@ -1,0 +1,256 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <div
+      class="col-4 col-md-3 col-xl-2 px-sm-2 px-0 bg-custom-sidebar"
+      [ngClass]="{ 'd-none': hideAside }"
+    >
+      <div
+        class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100 text-black"
+      >
+        <!-- Sidebar Content -->
+        <!-- Your existing sidebar content goes here -->
+        <a
+          routerLink="/home"
+          class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-decoration-none"
+        >
+          <span
+            class="fs-3 d-none d-sm-inline"
+            style="color: #103571; font-weight: 600"
+            ><i class="fa-brands fa-first-order" style="color: #103571"></i> Hr
+            System</span
+          >
+        </a>
+        <ul
+          class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-sm-start mt-4"
+          id="menu"
+        >
+          <li class="nav-item mb-2 w-100" [hidden]="!AddAdminAuth()">
+            <a
+              routerLink="/admin"
+              class="nav-link align-middle px-0 sidebar-item"
+            >
+              <i class="fa-solid fa-user-tie" style="color: #000000"></i
+              ><span class="ms-1 d-none d-sm-inline fs-6 text-black">
+                Admin</span
+              >
+            </a>
+          </li>
+          <li class="nav-item mb-2 w-100" [hidden]="!AddAuth()">
+            <a
+              routerLink="/authorize"
+              class="nav-link px-0 align-middle sidebar-item"
+            >
+              <i class="fa-solid fa-user-lock" style="color: #000000"></i
+              ><span class="ms-1 d-none d-sm-inline fs-6 text-black">
+                Authorization</span
+              >
+            </a>
+          </li>
+
+          <li class="nav-item mb-2 w-100">
+            <a
+              class="nav-link px-0 dropdown-toggle align-middle sidebar-item fs-6 text-black"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fa-solid fa-puzzle-piece" style="color: #000000"></i
+              ><span class="ms-1 d-none d-sm-inline"> Holiday</span>
+            </a>
+            <ul
+              class="dropdown-menu align-middle px-0 sidebar-item"
+              aria-labelledby="navbarDropdown"
+            >
+              <li [hidden]="!AddHolidayAuth()" class="w-100">
+                <a
+                  class="nav-link dropdown-item text-black"
+                  routerLink="/addholiday"
+                  >Add New Holiday</a
+                >
+              </li>
+              <hr class="w-100" style="margin: 0" />
+              <li>
+                <a
+                  class="nav-link dropdown-item text-black"
+                  routerLink="/holiday"
+                  ><span class="d-none d-sm-inline">Get Holidays</span></a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item mb-2 w-100">
+            <a
+              routerLink="/settings"
+              class="nav-link px-0 align-middle sidebar-item"
+            >
+              <i class="fa-solid fa-gear" style="color: #000000"></i
+              ><span class="ms-1 d-none d-sm-inline fs-6 text-black">
+                Settings</span
+              >
+            </a>
+          </li>
+
+          <li class="nav-item mb-2 w-100">
+            <a
+              class="nav-link px-0 dropdown-toggle align-middle sidebar-item fs-6 text-black"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fa-regular fa-clipboard" style="color: #000000"></i
+              ><span class="ms-1 d-none d-sm-inline"> Records</span>
+            </a>
+            <ul
+              class="dropdown-menu align-middle px-0 sidebar-item"
+              aria-labelledby="navbarDropdown"
+            >
+              <li [hidden]="!attendanceRecordAuth()" class="w-100">
+                <a
+                  class="nav-link dropdown-item text-black"
+                  routerLink="/attendance"
+                  >Add Record</a
+                >
+              </li>
+              <hr class="w-100" style="margin: 0" />
+              <li [hidden]="!getAllRecordAuth()">
+                <a
+                  class="nav-link dropdown-item text-black"
+                  routerLink="/records"
+                  >Get Records</a
+                >
+              </li>
+              <hr class="w-100" style="margin: 0" />
+              <li [hidden]="!getAllRecordAuth()">
+                <a
+                  class="nav-link dropdown-item text-black"
+                  routerLink="/attendbymonth"
+                  >Get Logs By Month</a
+                >
+              </li>
+              <hr class="w-100" style="margin: 0" />
+              <li [hidden]="!getProfileRecordsAuth()">
+                <a
+                  class="nav-link dropdown-item text-black"
+                  routerLink="/attendbyname"
+                  >My Attendance</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li [hidden]="!empAuth()" class="nav-item mb-2 w-100">
+            <a
+              class="nav-link px-0 dropdown-toggle align-middle sidebar-item fs-6 text-black"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fa-solid fa-users" style="color: #000000"></i
+              ><span class="ms-1 d-none d-sm-inline"> Employees</span>
+            </a>
+            <ul
+              class="dropdown-menu align-middle px-0 sidebar-item"
+              aria-labelledby="navbarDropdown"
+            >
+              <li [hidden]="!getAllEmployeesAuth()" class="w-100">
+                <a
+                  class="nav-link dropdown-item text-black"
+                  routerLink="/employees"
+                  >All Employees</a
+                >
+              </li>
+              <hr class="w-100" style="margin: 0" />
+              <li [hidden]="!addNewEmployeeAuth()" class="w-100">
+                <a
+                  class="nav-link dropdown-item text-black"
+                  routerLink="/Addemp"
+                  >Add Employee</a
+                >
+              </li>
+              <hr class="w-100" style="margin: 0" />
+              <li [hidden]="!getEmpProfileAuth()" class="w-100">
+                <a
+                  class="nav-link dropdown-item text-black"
+                  routerLink="/employeeProfile"
+                  >My Profile
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item mb-4 w-100">
+            <a
+              class="nav-link px-0 dropdown-toggle align-middle sidebar-item fs-6 text-black"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i
+                class="fa-solid fa-file-invoice-dollar"
+                style="color: #000000"
+              ></i
+              ><span class="ms-1 d-none d-sm-inline"> Salary</span>
+            </a>
+            <ul
+              class="dropdown-menu align-middle px-0 sidebar-item"
+              aria-labelledby="navbarDropdown"
+            >
+              <li [hidden]="!calcSalaryForEmpAuth()" class="w-100">
+                <a
+                  class="nav-link dropdown-item text-black"
+                  routerLink="/salary"
+                  >Salary</a
+                >
+              </li>
+              <hr class="w-100" style="margin: 0" />
+              <li [hidden]="!getAllSalariesAuth()" class="w-100">
+                <a
+                  class="nav-link dropdown-item text-black"
+                  routerLink="/allsalaries"
+                  >Get All Salaries</a
+                >
+              </li>
+              <hr class="w-100" style="margin: 0" />
+              <li [hidden]="!getEmpSalaryAuth()" class="w-100">
+                <a
+                  class="nav-link dropdown-item text-black"
+                  routerLink="/empsalary"
+                  >Get My Salary</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item mb-2 w-100">
+            <a
+              routerLink="/login"
+              class="nav-link px-0 align-middle sidebar-item"
+              (click)="signout()"
+            >
+              <i
+                class="fa-solid fa-right-from-bracket"
+                style="color: #a63737"
+              ></i
+              ><span class="ms-1 d-none d-sm-inline fs-6 text-danger">
+                Log Out</span
+              >
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-8 col-md-9 col-xl-10" id="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

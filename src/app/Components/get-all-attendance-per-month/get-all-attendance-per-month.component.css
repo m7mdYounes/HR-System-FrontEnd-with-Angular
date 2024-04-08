@@ -1,0 +1,199 @@
+
+.panel{
+    background: none;
+    border: none;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.panel .panel-heading{
+    padding: 20px 15px ;
+    margin: 0;
+}
+
+.panel .panel-heading .title{
+    color: #fff;
+    font-size: 28px;
+    font-weight: 500;
+    text-transform: capitalize;
+    line-height: 40px;
+    margin: 0;
+    border-bottom: 1px solid #ffffffba; 
+    padding-bottom: 10px;
+}
+
+
+.panel .panel-heading .btn{
+    color: #fff;
+    background: #2c3e50;
+    font-size: 16px;
+    text-transform: capitalize;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    margin-left: 500px;
+    transition: all 0.3s ease 0s;
+}
+.panel .panel-heading .btn:hover{
+    color: #fff;
+    text-shadow: 3px 3px rgba(255,255,255,0.2);
+}
+.panel .panel-body .table thead tr th{
+    color: #fff;
+    background-color: rgba(247, 247, 247, 0.265);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 12px;
+    border: none;
+}
+.panel .panel-body .table  tr td{
+    color: #fff;
+    background-color: transparent ;
+    font-size: 15px;
+    padding: 10px 12px;
+    vertical-align: middle;
+    border: none;
+}
+.panel .panel-body .table tbody tr:nth-child(even){ background-color: rgba(255,255,255,0.05); }
+.panel .panel-body .table tbody .action-list{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.panel .panel-body .table tbody .action-list li{
+    display: inline-block;
+    margin: 0 5px;
+}
+.panel .panel-body .table tbody .action-list li a{
+    color: #fff;
+    font-size: 15px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease 0s;
+}
+.panel .panel-body .table tbody .action-list li a:hover{ text-shadow: 3px 3px 0 rgba(255,255,255,0.3); }
+.panel .panel-body .table tbody .action-list li a:before,
+.panel .panel-body .table tbody .action-list li a:after{
+    content: attr(data-tip);
+    color: #fff;
+    background-color: #111;
+    font-size: 12px;
+    padding: 5px 7px;
+    border-radius: 4px;
+    text-transform: capitalize;
+    display: none;
+    transform: translateX(-50%);
+    position: absolute;
+    left: 50%;
+    top: -32px;
+    transition: all 0.3s ease 0s;
+}
+.panel .panel-body .table tbody .action-list li a:after{
+    content: '';
+    height: 15px;
+    width: 15px;
+    padding: 0;
+    border-radius: 0;
+    transform: translateX(-50%) rotate(45deg);
+    top: -18px;
+    z-index: -1;
+}
+.panel .panel-body .table tbody .action-list li a:hover:before,
+.panel .panel-body .table tbody .action-list li a:hover:after{
+    display: block;
+}
+
+
+
+
+/* Apply styles to the form labels and input fields */
+.panel .panel-body label.form-label,
+.panel .panel-body input.form-control,
+.panel .panel-body select.form-control {
+    color: #fff;
+    font-weight: 500;
+    width: calc(50% - 10px); /* Adjust width to match parent width */
+    height: 40px; /* Set a fixed height */
+    box-sizing: border-box; /* Ensure width includes padding and border */
+    position: relative; /* Required for pseudo-elements */
+    display: inline-block; /* Display inline with fixed width */
+    margin-right: 40px; /* Adjust margin to reduce space */
+}
+
+/* Apply styles to the form input fields when focused */
+.panel .panel-body input.form-control:focus,
+.panel .panel-body select.form-control:focus {
+    outline: none;
+    border-color: rgba(28, 28, 28, 0.811);
+}
+
+/* Apply styles to the arrow in select element */
+.panel .panel-body select.form-control::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Adjust the distance of the arrow from the edge */
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid black; /* Set the color of the arrow */
+    transform: translateY(-50%);
+}
+
+/* Apply styles to the arrow in number input */
+.panel .panel-body input.form-control[type="number"]::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Adjust the distance of the arrow from the edge */
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid black; /* Set the color of the arrow */
+    transform: translateY(-50%);
+}
+
+/* Apply styles to the error messages */
+.panel .panel-body .text-danger {
+    color: #ffdddd;
+}
+
+/* Apply styles to the submit button */
+.panel .panel-body button.btn {
+    background-color: rgb(5, 39, 87);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Apply styles to the submit button on hover */
+.panel .panel-body button.btn:hover {
+    background-color: #1325ef;
+}
+
+/* Apply styles to the submit button when disabled */
+.panel .panel-body button.btn:disabled {
+    background-color: #2e2f30;
+    cursor: not-allowed;
+}
+
+/* Change color of numbers in input */
+.panel .panel-body input.form-control[type="number"]::-webkit-inner-spin-button,
+.panel .panel-body input.form-control[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.panel .panel-body input.form-control[type="number"] {
+    color: rgb(43, 43, 43);
+}
+

@@ -1,0 +1,39 @@
+<div class="col-md-12"> 
+  <!-- <div [hidden] = "!getAllHolidayAuth()"> -->
+  <div class="panel">
+      <div class="panel-heading">
+          <div class="row">
+              <div class="col-6">
+                  <h4 class="title"><b>Holiday Records</b></h4>
+              </div>
+          </div>
+      </div>
+      <div class="panel-body table-responsive">
+          <table class="table table-bordered">
+            <thead class="text-center">
+              <tr>
+                  <th><b>#</b></th>
+                  <th><b>Name</b></th>
+                  <th><b>Date</b></th>
+                  <th scope="col" ><b>Actions</b></th>
+              </tr>
+          </thead>
+          <tbody class="text-center">
+            <tr *ngFor="let item of frecords; let i = index">
+              <td scope="row">{{ i + 1 }}</td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.date }}</td>
+              <td >
+                <ul class="action-list">
+                  <li><a data-tip="edit" (click)="editRecord(item)" routerLink="/editRecord/{{ Record.id }}"><i class="fas fa-edit" style="margin-right: 10px;"></i></a></li>
+                  <li><a data-tip="delete" (click)="deleteRecord(item)"><i class="fas fa-trash" style="color: rgb(243, 18, 18);"></i></a></li>
+              </ul>
+                
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>
+                 

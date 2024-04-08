@@ -1,0 +1,153 @@
+<div class="col-md-12">
+  <div [hidden]="!attendanceRecordAuth()">
+    <div class="panel">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-10 mb-4">
+            <h4 class="title"><b>Add Record</b></h4>
+          </div>
+        </div>
+      </div>
+      <div class="panel-body">
+        <form class="mt-0 mb-4" (ngSubmit)="AddRecord()" #recordform="ngForm">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-6 mb-4" style="margin-left: 250px">
+                <div class="form-group mb-1">
+                  <label for="empname1" class="form-label ml-2"
+                    >Employee Name</label
+                  >
+                  <select
+                    class="form-select"
+                    id="empname1"
+                    aria-label="Employee Name"
+                    [(ngModel)]="Record.emp_name"
+                    name="empname1"
+                    #emp_name="ngModel"
+                    required
+                    style="width: 100%; height: 43px;"
+                  >
+                    <option *ngFor="let emp of empname" [value]="emp.fullName">
+                      {{ emp.fullName }}
+                    </option>
+                  </select>
+
+                  <div
+                    [hidden]="
+                      emp_name.valid ||
+                      emp_name.untouched ||
+                      emp_name.value == 0
+                    "
+                  >
+                    <small
+                      class="text-danger"
+                      [hidden]="!emp_name.errors?.['required']"
+                    >
+                      *Employee Name is required
+                    </small>
+                  </div>
+                </div>
+
+                <div class="form-group mb-1">
+                  <label for="date" class="form-label mt-4">Day Date</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="date"
+                    [(ngModel)]="Record.daydate"
+                    required
+                    #daydate="ngModel"
+                    name="date"
+                    style="width: 100%"
+                  />
+
+                  <div [hidden]="daydate.valid || daydate.untouched">
+                    <small
+                      class="text-danger"
+                      [hidden]="!daydate.errors?.['required']"
+                    >
+                      *Day Date is required
+                    </small>
+                  </div>
+                </div>
+
+                <div class="mb-1">
+                  <label for="arrivaltime" class="form-label mt-4"
+                    >Attendance Time</label
+                  >
+                  <input
+                    type="time"
+                    class="form-control"
+                    id="arrivaltime"
+                    [(ngModel)]="Record.arrival"
+                    required
+                    #arrivalTime="ngModel"
+                    name="arrivaltime"
+                    style="width: 100%"
+                  />
+
+                  <div [hidden]="arrivalTime.valid || arrivalTime.untouched">
+                    <small
+                      class="text-danger"
+                      [hidden]="!arrivalTime.errors?.['required']"
+                    >
+                      *Attendance Time is required
+                    </small>
+                  </div>
+                </div>
+
+                <div class="mb-1">
+                  <label for="dismissaltime" class="form-label mt-4"
+                    >Dismissal Time</label
+                  >
+                  <input
+                    type="time"
+                    class="form-control"
+                    id="dismissaltime"
+                    [(ngModel)]="Record.dissmissal"
+                    required
+                    #dismissalTime="ngModel"
+                    name="dismissaltime"
+                    style="width: 100%"
+                  />
+
+                  <div
+                    [hidden]="dismissalTime.valid || dismissalTime.untouched"
+                  >
+                    <small
+                      class="text-danger"
+                      [hidden]="!dismissalTime.errors?.['required']"
+                    >
+                      *Dismissal Time is required
+                    </small>
+                  </div>
+
+                  <div [hidden]="arrivalTime.value < dismissalTime.value">
+                    <small
+                      class="text-danger "
+                      style="font-weight: bold;"
+                      [hidden]="
+                        arrivalTime.untouched || dismissalTime.untouched
+                      "
+                    >
+                      Note: Dismissal Time must be larger than Arrival Time
+                    </small>
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn btn-primary w-50 mt-4"
+                  [disabled]="recordform.invalid"
+                  style="margin-top: 10px; margin-left: 120px"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+.custom-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: transparent !important;
+    color: #fff;
+    text-align: center; /* Center-align content */
+  }
+  .form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  .form-group label {
+    flex-basis: 25%; /* Adjust label width */
+    margin-right: 2rem; /* Add spacing between label and input */
+    text-align: left;
+  }
+  .form-group input, 
+  .form-group select {
+    flex-basis: 60%; /* Adjust input width */
+    width: 100%; /* Fill available space */
+  }
+  .btn {
+    background-color: rgb(5, 39, 87);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+  }
+  .btn:hover{
+    background-color: #1325ef;
+  }
+  :disabled {
+    background-color: #2e2f30;
+    cursor: not-allowed;
+}
+  

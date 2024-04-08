@@ -1,0 +1,38 @@
+<div class="col-md-12"> 
+  <div class="panel">
+      <div class="panel-heading">
+          <div class="row" [hidden] = "!editHolidayAuth()">
+              <div class="col-10 mb-5">
+                  <h4 class="title"><b>Edit Holiday</b></h4>
+              </div>
+          </div>
+      </div>
+      <div class="panel-body ">
+        <form [formGroup]="editForm">
+          <div class="row g-3">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6 mb-4" style="margin-left: 250px;">
+                        <div class="form-group">
+            <label for="name" class="form-label ml-3">Name</label>
+            <input type="text" id="name" formControlName="name" class="form-control form-control-sm ml-3" />
+    </div>
+  </div>
+  <div class="col-md-6 mb-4" style="margin-left: 250px;">
+    <div class="form-group">
+    <label for="date" class="form-label ml-3">Date</label>
+    <input type="date" id="date" formControlName="date" class="form-control form-control-sm ml-3" />
+  </div>
+  <button type="button" class="btn btn-primary btn-sm mt-5 " style="margin-left: 40px; background-color: rgb(5, 39, 87); " (click)="saveChanges()">Save</button>
+  <button type="button" class="btn btn-primary btn-sm mt-5 " style="margin-left: 20px; background-color: rgb(24, 22, 22);" (click)="goBack()">Back</button>
+  
+  </div>
+        </div>
+      </div>
+    </div>
+    </form>
+            </div>
+        </div>
+      </div>
+   
+    

@@ -1,0 +1,83 @@
+<div class="col-md-12" [hidden] = "!getRecordsByMonthAuth()"> 
+  <div class="panel">
+      <div class="panel-heading">
+          <div class="row">
+              <div class="col-6 mb-1">
+                  <h4 class="title"><b>Get All Attendance Per Month</b></h4>
+              </div>
+          </div>
+      </div>
+      <div class="panel-body" style="margin-left: 30px;">
+    <form class="form-inline mb-3" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label class="col-form-label form-label fs-5">Month :
+        <input
+        style="margin-left: 18px;"
+          class="form-control"
+          type="number"
+          id="month"
+          [(ngModel)]="reqSalary.month"
+          name="month"
+          required
+          min="1"
+          max="12"
+        />
+      </label>
+    </div>
+      <div  class="mb-3">
+        <label class="col-form-label form-label fs-5">Year :
+        <input
+        style="margin-left: 40px;"
+          class="form-control"
+          type="number"
+          id="year"
+          [(ngModel)]="reqSalary.year"
+          name="year"
+          required
+          min="2020"
+          max="2100"
+        />
+      </label>
+    </div>
+      <button type="submit" class="btn btn-dark mt-3 " style="margin-left: 6rem;width: 175px;">Submit</button>
+    </form>
+  </div>
+  
+</div>
+
+
+  <!-- ////////////////////////////////////////////////////// -->
+<hr class="w-100 text-white mt-3">
+        <div class="col-md-14">
+          <div class="panel">
+              <div class="panel-heading">
+                  <div class="row">
+                      <div class="col-6">
+                          <h4 class="title"><b>Salary Report</b></h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel-body table-responsive">
+                    <table class="table table-bordered">
+                      <thead class="text-center">
+                          <tr>
+                            <th><b>Employee Name</b></th>
+                            <th><b>Date</b></th>
+                            <th><b>Attendance Time</b></th>
+                            <th><b>Departure Time</b></th>
+                            
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let record of allAttendanceRecords">
+          <td>{{ record.emp_name }}</td>
+          <td>{{ record.day_date }}</td>
+          <td>{{ record.attendance_time }}</td>
+          <td>{{ record.departure_time }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+</div>
